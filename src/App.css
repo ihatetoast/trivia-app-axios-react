@@ -1,0 +1,24 @@
+*,
+*::after, 
+*::before {
+  margin: 0;
+  padding: 0; 
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif; 
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+}
+
+/* just title font-family: "Fjalla One", sans-serif; */
+/* question font-family: "Libre Baskerville", serif; 400 and 700 */
+/* answer and gen body:  font-family: "Montserrat", sans-serif; 400 and 700 */
