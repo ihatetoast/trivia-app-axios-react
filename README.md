@@ -13,7 +13,7 @@ I have not used Axios in a while and I missed it! I love playing around with fre
 
 
 ![Cards with one on hover state](images/unflipped-hover.png)
-![Cards with the hovered card flipped](images/unflipped.png)
+![Cards with the hovered card flipped](images/flipped.png)
 
 --- 
 vite mumbo jumbo
