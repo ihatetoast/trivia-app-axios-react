@@ -1,24 +1,186 @@
-*,
-*::after, 
-*::before {
-  margin: 0;
-  padding: 0; 
-  box-sizing: inherit;
-}
+/* CSS RESET IN STYLESHEET LOADED BEFORE THIS. 
+ON INDEX.HTML */
 
-html {
-  font-size: 62.5%;
-}
-
-body {
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif; 
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-  color: #777;
-}
+/* weather inspo https://dribbble.com/shots/23852765-Fun-Weather-App  */
+/* weather icons https://pixabay.com/users/theujulala-59978/ */
 
 /* just title font-family: "Fjalla One", sans-serif; */
 /* question font-family: "Libre Baskerville", serif; 400 and 700 */
 /* answer and gen body:  font-family: "Montserrat", sans-serif; 400 and 700 */
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #b4c5d9;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 3rem;
+}
+
+header h1 {
+  margin: 1.25rem auto 1rem;
+}
+
+h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+}
+
+header,
+.trivia-form {
+  background-color: #fffeff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+header {
+  flex-direction: column;
+}
+/* FORM  */
+
+.trivia-form {
+  padding: 0.5rem 0.5rem 1rem;
+  box-shadow: 0px 8px 6px -6px rgba(51, 73, 102, 0.3);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+}
+
+.form-group > label {
+  color: #342565;
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+select,
+input {
+  font-size: 1rem;
+}
+
+.btn {
+  background-color: #493a78;
+  color: #fafcfc;
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+.btn:hover {
+  background-color: #342565;
+}
+/* TRIVIA SECTION WITH CARDS  */
+
+.quiz-board {
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.card {
+  background-color: #fafcfc;
+  border-radius: 20px;
+  box-shadow: 0 0 8px 5px rgba(51, 73, 102, 0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  transform-style: preserve-3d; /* Keep child elements in 3D space */
+  transform: translateY(var(--translate-y, 0)) rotateY(var(--rotate-y, 0))
+    perspective(1000px);
+  transition: all 0.4s; /* Smooth flip */
+}
+
+.card:hover {
+  --translate-y: -2px;
+  box-shadow: 0 7px 8px 5px rgba(51, 73, 102, 0.5);
+}
+
+/* -front and -back = children*/
+.card .card-front,
+.card .card-back {
+  backface-visibility: hidden; /* hide back when facing away */
+  position: absolute;
+  width: 100%;
+}
+
+.card.flipped {
+  --rotate-y: 180deg;
+}
+
+.card-front h2 {
+  margin: 1rem;
+}
+
+.card-back h2 {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.card .card-back {
+  transform: rotateY(180deg);
+}
+
+.answers-list {
+  margin: 0 0.5rem 1rem 1rem;
+}
+
+.answers-list li {
+  margin-top: 0.3rem;
+}
+
+.answers-list li:first-child {
+  margin-top: 0;
+}
+
+/* DIFFICULTY LEVEL  */
+.card .color-band {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  font-family: 'Fjalla One', sans-serif;
+  height: 40px;
+  align-items: center;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.card.easy .color-band {
+  background-color: #dcedfa;
+  color: #2e225d;
+}
+.card.medium .color-band {
+  background-color: #74aede;
+  color: #322363;
+}
+.card.hard .color-band {
+  background-color: #493a78;
+  color: #fffeff;
+}
+
+.color-band .icon {
+  width: 30px;
+  height: 30px;
+}
